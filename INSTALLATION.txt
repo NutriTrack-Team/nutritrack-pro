@@ -1,0 +1,200 @@
+╔═══════════════════════════════════════════════════════════════╗
+║              NutriTrack Pro - Installation Guide              ║
+║                    Web Programming Course Project             ║
+╔═══════════════════════════════════════════════════════════════╗
+
+📋 SYSTEM REQUIREMENTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✓ XAMPP / WAMP / LAMP (Apache + MySQL + PHP)
+✓ PHP Version: 7.4 or higher
+✓ MySQL Version: 5.7 or higher
+✓ Web Browser: Chrome, Firefox, Safari, or Edge
+
+🚀 INSTALLATION STEPS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+STEP 1: Extract Files
+──────────────────────
+Extract the nutritrack-pro folder to your web server directory:
+  • XAMPP: C:\xampp\htdocs\
+  • WAMP: C:\wamp64\www\
+  • LAMP: /var/www/html/
+
+STEP 2: Start Services
+──────────────────────
+Open XAMPP/WAMP Control Panel and start:
+  ✓ Apache (Web Server)
+  ✓ MySQL (Database)
+
+STEP 3: Create Database
+────────────────────────
+1. Open browser and go to: http://localhost/phpmyadmin
+2. Click "New" to create a new database
+3. Database name: nutritrack_pro
+4. Collation: utf8mb4_general_ci
+5. Click "Create"
+
+STEP 4: Import Database Schema
+───────────────────────────────
+1. Select the "nutritrack_pro" database
+2. Click on "Import" tab
+3. Click "Choose File" and select: database/schema.sql
+4. Scroll down and click "Go"
+5. Wait for success message
+
+STEP 5: Configure Database Connection (if needed)
+──────────────────────────────────────────────────
+Open file: backend/config/database.php
+
+Default settings:
+  DB_HOST = 'localhost'
+  DB_USER = 'root'
+  DB_PASS = ''
+  DB_NAME = 'nutritrack_pro'
+
+Change only if your MySQL has different credentials.
+
+STEP 6: Access Application
+───────────────────────────
+Open your web browser and navigate to:
+  http://localhost/nutritrack-pro/
+
+🔐 LOGIN CREDENTIALS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ADMIN (Hardcoded - No Registration Needed)
+──────────────────────────────────────────
+Email: adminalvi@nutritrack.com
+Password: Admin@123
+
+OR
+
+Email: adminfaiza@nutritrack.com
+Password: Admin@123
+
+USER ACCOUNTS
+─────────────
+Create new user account via Sign Up button on homepage
+OR use database sample data (check schema.sql)
+
+DIETITIAN ACCOUNTS
+──────────────────
+• Sign up as dietitian (requires admin approval)
+• Or use pre-loaded dietitian accounts:
+  Email: samira.rahman@nutritrack.com
+  Password: password (default for samples)
+
+📂 PROJECT STRUCTURE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+nutritrack-pro/
+├── index.php (Landing Page - START HERE)
+├── assets/
+│   ├── css/ (Stylesheets)
+│   ├── js/ (JavaScript files)
+│   └── images/ (User/Dietitian photos)
+├── backend/
+│   ├── config/ (Database & Session)
+│   ├── controllers/ (Business Logic)
+│   └── api/ (REST API Endpoints)
+├── pages/
+│   ├── user/ (User Dashboard & Features)
+│   ├── dietitian/ (Dietitian Portal)
+│   └── admin/ (Admin Panel)
+└── database/
+    └── schema.sql (Database Structure)
+
+🎯 FEATURES CHECKLIST
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+USER FEATURES:
+☑ User Registration & Login
+☑ Dashboard with Calorie/Water/Weight Tracking
+☑ Food Tracking (Breakfast/Lunch/Dinner/Snacks)
+☑ Smart Pantry with Recipe Suggestions
+☑ Find & Subscribe to Dietitians
+☑ Personalized Diet Plans
+☑ Messaging with Dietitian
+☑ Alerts System
+☑ Profile Management with BMI Calculator
+☑ Weight Tracking (Weekly)
+☑ Analytics (Daily/Weekly/Monthly)
+
+DIETITIAN FEATURES:
+☑ Dietitian Registration (Pending Admin Approval)
+☑ Dietitian Dashboard
+☑ Client Management
+☑ Create Diet Plans for Clients
+☑ Client Progress Tracking
+☑ Messaging with Clients
+☑ Send Alerts to Clients
+☑ Editable Profile & About Section
+
+ADMIN FEATURES:
+☑ Hardcoded Admin Login
+☑ Admin Dashboard with Statistics
+☑ User Management (View/Delete/Search)
+☑ Dietitian Management (View/Delete/Search)
+☑ Food Database Management (Add/Edit/Delete)
+☑ Pending Dietitian Approvals
+
+🔧 TROUBLESHOOTING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Problem: "Database connection failed"
+Solution: 
+  • Check MySQL is running in XAMPP/WAMP
+  • Verify database name is "nutritrack_pro"
+  • Check credentials in backend/config/database.php
+
+Problem: "Page not found" or 404 errors
+Solution:
+  • Ensure folder is named exactly "nutritrack-pro"
+  • Check Apache is running
+  • URL should be: http://localhost/nutritrack-pro/
+
+Problem: "Login not working"
+Solution:
+  • Clear browser cache and cookies
+  • Check PHP sessions are enabled
+  • Verify admin credentials are typed correctly
+
+Problem: "Blank page" or "PHP errors"
+Solution:
+  • Check PHP error logs in XAMPP/logs/
+  • Ensure PHP version is 7.4+
+  • Verify all files extracted correctly
+
+📞 ADDITIONAL SUPPORT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Read README.md for detailed documentation
+• Check inline code comments for specific functionality
+• Refer to database/schema.sql for table structures
+
+✅ VERIFICATION CHECKLIST
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+□ XAMPP/WAMP Apache & MySQL services running
+□ Database "nutritrack_pro" created
+□ schema.sql imported successfully
+□ Can access http://localhost/nutritrack-pro/
+□ Landing page loads correctly
+□ Admin login works
+□ User registration works
+□ Dietitian registration works
+
+🎓 COURSE PROJECT NOTES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+This project demonstrates:
+✓ Multi-role authentication system
+✓ Complete CRUD operations
+✓ Complex business logic (BMI, Calories, Macros)
+✓ Responsive UI design
+✓ MySQL database relationships
+✓ PHP session management
+✓ Form validation (client & server side)
+✓ Dynamic content rendering
+✓ No frameworks used (Pure HTML, CSS, JS, PHP)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                    Installation Complete!
+                  Start from: index.php
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
