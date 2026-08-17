@@ -27,26 +27,20 @@ if (!preg_match('/^\d{4}-\d{2}-\d{2}$/', $logDate)) {
     exit;
 }
 
-if ($caloriesConsumed < 0 || $caloriesTarget < 0) {
+if ($caloriesConsumed < 0 || $caloriesTarget < 0 ||
+    $proteinConsumed < 0 || $carbsConsumed < 0 ||
+    $fatsConsumed < 0 || $waterGlasses < 0) {
     echo json_encode([
         'success' => false,
-        'error' => 'Calories cannot be negative'
+        'error' => 'Progress values cannot be negative'
     ]);
     exit;
 }
 
-if ($proteinConsumed < 0 || $carbsConsumed < 0 || $fatsConsumed < 0) {
+if ($caloriesTarget <= 0) {
     echo json_encode([
         'success' => false,
-        'error' => 'Nutrients cannot be negative'
-    ]);
-    exit;
-}
-
-if ($waterGlasses < 0) {
-    echo json_encode([
-        'success' => false,
-        'error' => 'Water glasses cannot be negative'
+        'error' => 'Calories target must be greater than zero'
     ]);
     exit;
 }
@@ -74,7 +68,7 @@ $stmt = $conn->prepare("
 ");
 
 $stmt->bind_param(
-    "isiiddii",
+    "isiidddi",
     $userId,
     $logDate,
     $caloriesConsumed,
